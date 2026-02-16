@@ -1,6 +1,7 @@
 ---
 import Card from "../components/linktree/card.astro";
 import Chip from "../components/linktree/chip.astro";
+import "../styles/animation.css";
 
 type Link = {
   desc: string;
@@ -11,14 +12,19 @@ type Link = {
 // Put all your links here
 const links: Link[] = [
   {
-    desc: "Example Project", // The text that will be rendered
-    link: "example.com", // The link
-    icon: "fa-solid fa-home", // An icon from Font Awesome: https://fontawesome.com/search?o=r&m=free
+    desc: "Dogma's Pull",
+    link: "https://open.spotify.com/intl-fr/track/0T5tM0mD9CZq9D67TaFRpB?si=a1f56208823f4114&nd=1&dlsi=8a11576c6e9349f0",
+    icon: "/images/dogmaspull.png",
   },
   {
-    desc: "Cool Project",
-    link: "example.com",
-    icon: "fa-solid fa-store",
+    desc: "Space Boy",
+    link: "https://open.spotify.com/intl-fr/track/6LxpLh5zGplbQ37zheubOz?si=ee5211ceaa1744bd&nd=1&dlsi=7d2e0809b61b422d",
+    icon: "/images/spaceboy.png",
+  },
+  {
+    desc: "Soul Eaters",
+    link: "https://open.spotify.com/intl-fr/track/49KsjZdBmXszHHEg0Ji0Mg?si=43fdf85759654c4e&nd=1&dlsi=5ab12d892f8f4d1f",
+    icon: "/images/souleaters.png",
   },
 ];
 ---
@@ -49,15 +55,20 @@ const links: Link[] = [
     <title>ANTEO</title>
     <style>
       @font-face {
-        font-family: Geist;
-        src: url(/Geist.ttf);
+        font-family: Plunct;
+        src: url(/fonts/plunct.otf) format('opentype');
         font-display: swap;
       }
     </style>
   </head>
   <body
-    class='bg-[#1e1e1e] flex justify-center items-center w-screen h-screen font-[Geist] text-white'
+    class='bg-[#1e1e1e] flex justify-center items-center w-screen h-screen font-[Plunct] text-white'
   >
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <video autoplay loop muted playsinline class="w-24 absolute left-1/2 -translate-x-1/2 top-0 fall">
+        <source src="/animations/logo.webm" type="video/webm" />
+      </video>
+    </div>
     <main class='w-[80%] flex flex-col gap-8'>
       <h1 class='md:text-6xl text-4xl font-black text-center'>ANTE.O</h1>
       <div class='grid justify-center gap-4'>
@@ -73,7 +84,7 @@ const links: Link[] = [
         <Chip link='https://open.spotify.com/intl-fr/artist/5wk0zTbmF5c71b96RzIu0q' icon='fa-brands fa-spotify' />
         <Chip link='https://music.apple.com/us/artist/ante-o/1834490670?l=fr-FR' icon='fa-brands fa-apple' />
       </div>
-      <p class='text-center mx-auto'>Some additional text, like your email</p>
+      <p class='text-center mx-auto'>Cold plunges make you cold.</p>
     </main>
   </body>
 </html>

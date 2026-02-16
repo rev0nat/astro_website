@@ -1,0 +1,8 @@
+@keyframes fall {
+    0% { transform: translateY(-150px); }
+    100% { transform: translateY(100vh); }
+  }
+  
+.fall {
+    animation: fall 5s linear infinite;
+  }

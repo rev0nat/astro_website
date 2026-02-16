@@ -10,10 +10,10 @@ const { desc, link, icon } = Astro.props;
 <a
   href={`https://${link}`}
   target='_blank'
-  class='bg-black/10 p-6 rounded-2xl border-white/10 border active:scale-95 duration-200 ease-in-out hover:brightness-200'
+  class='bg-black/10 p-6 rounded-2xl border-white/10 border active:scale-95 duration-200 ease-in-out hover:bg-black'
 >
   <div class='flex gap-4 justify-between'>
-    <i class={`${icon} text-xl my-auto`}></i>
+    <img src={icon} alt={desc} class="h-10 w-10 my-auto" />
     <h1 class='font-extrabold text-2xl'>{desc}</h1>
   </div>
 </a>
