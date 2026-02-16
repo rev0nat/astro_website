@@ -1,8 +1,53 @@
 @keyframes fall {
-    0% { transform: translateY(-150px); }
-    100% { transform: translateY(100vh); }
-  }
+    0% { transform: translateY(-150px) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+  
+@keyframes fall-slow {
+    0% { transform: translateY(-150px) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(180deg); }
+}
+  
+@keyframes fall-fast {
+    0% { transform: translateY(-150px) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(270deg); }
+}
+
+@keyframes fall-inverted {
+    0% { transform: translateY(-150px) rotate(360deg); }
+    100% { transform: translateY(100vh) rotate(270deg); }
+}
+
+@keyframes fall-slow-inverted {
+    0% { transform: translateY(-150px) rotate(180deg); }
+    100% { transform: translateY(100vh) rotate(20deg); }
+}
+
+@keyframes fall-fast-inverted {
+    0% { transform: translateY(-150px) rotate(270deg); }
+    100% { transform: translateY(100vh) rotate(100deg); }
+}
   
 .fall {
     animation: fall 5s linear infinite;
-  }
+}
+  
+.fall-slow {
+    animation: fall-slow 8s ease-in infinite;
+}
+  
+.fall-fast {
+    animation: fall-fast 4s ease-in infinite;
+}
+  
+.fall-inverted {
+    animation: fall-inverted 5s linear infinite;
+}
+
+.fall-slow-inverted {
+    animation: fall-slow 8s ease-in infinite;
+}
+
+.fall-fast-inverted {
+    animation: fall-fast 4s ease-in infinite;
+}

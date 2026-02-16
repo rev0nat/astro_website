@@ -13,17 +13,17 @@ type Link = {
 const links: Link[] = [
   {
     desc: "Dogma's Pull",
-    link: "https://open.spotify.com/intl-fr/track/0T5tM0mD9CZq9D67TaFRpB?si=a1f56208823f4114&nd=1&dlsi=8a11576c6e9349f0",
+    link: "open.spotify.com/intl-fr/track/0T5tM0mD9CZq9D67TaFRpB?go=1&sp_cid=9a8a587cec93b2cd1e9711e5cf067ea2",
     icon: "/images/dogmaspull.png",
   },
   {
     desc: "Space Boy",
-    link: "https://open.spotify.com/intl-fr/track/6LxpLh5zGplbQ37zheubOz?si=ee5211ceaa1744bd&nd=1&dlsi=7d2e0809b61b422d",
+    link: "open.spotify.com/intl-fr/track/6LxpLh5zGplbQ37zheubOz?si=ee5211ceaa1744bd&nd=1&dlsi=7d2e0809b61b422d",
     icon: "/images/spaceboy.png",
   },
   {
     desc: "Soul Eaters",
-    link: "https://open.spotify.com/intl-fr/track/49KsjZdBmXszHHEg0Ji0Mg?si=43fdf85759654c4e&nd=1&dlsi=5ab12d892f8f4d1f",
+    link: "open.spotify.com/intl-fr/track/49KsjZdBmXszHHEg0Ji0Mg?si=43fdf85759654c4e&nd=1&dlsi=5ab12d892f8f4d1f",
     icon: "/images/souleaters.png",
   },
 ];
@@ -64,10 +64,24 @@ const links: Link[] = [
   <body
     class='bg-[#1e1e1e] flex justify-center items-center w-screen h-screen font-[Plunct] text-white'
   >
+    
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <video autoplay loop muted playsinline class="w-24 absolute left-1/2 -translate-x-1/2 top-0 fall">
-        <source src="/animations/logo.webm" type="video/webm" />
-      </video>
+      {Array.from({ length: 10 }).map(() => {
+        const falls = ["fall", "fall-slow", "fall-fast", "fall-inverted", "fall-slow-inverted", "fall-fast-inverted"];
+        const logoSize = ["50px", "75px", "88px", "77px"]
+        const randomFall = falls[Math.floor(Math.random() * falls.length)];
+        const randomSize = logoSize[Math.floor(Math.random() * logoSize.length)]
+      
+        return (
+          <video
+            autoplay loop muted playsinline
+            class={`w-24 absolute -translate-x-1/2 top-0 ${randomFall}`}
+            style={`left:${Math.random()*100}%;animation-delay:${1+Math.random()*4}s;width:${randomSize}`}
+          >
+            <source src="/animations/logo-small.webm" type="video/webm" />
+          </video>
+        );
+      })}
     </div>
     <main class='w-[80%] flex flex-col gap-8'>
       <h1 class='md:text-6xl text-4xl font-black text-center'>ANTE.O</h1>
