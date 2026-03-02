@@ -30,24 +30,30 @@
   
 .fall {
     animation: fall 5s linear infinite;
+    animation-fill-mode: backwards;
 }
   
 .fall-slow {
     animation: fall-slow 8s ease-in infinite;
+    animation-fill-mode: backwards;
 }
   
 .fall-fast {
     animation: fall-fast 4s ease-in infinite;
+    animation-fill-mode: backwards;
 }
   
 .fall-inverted {
     animation: fall-inverted 5s linear infinite;
+    animation-fill-mode: backwards;
 }
 
 .fall-slow-inverted {
     animation: fall-slow 8s ease-in infinite;
+    animation-fill-mode: backwards;
 }
 
 .fall-fast-inverted {
     animation: fall-fast 4s ease-in infinite;
+    animation-fill-mode: backwards;
 }
