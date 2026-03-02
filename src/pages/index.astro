@@ -65,27 +65,29 @@ const links: Link[] = [
   <body
     class='bg-[#1e1e1e] flex justify-center items-center w-screen h-screen font-[Plunct] text-white texture-bg'
   >
+    <div class="snow-container pointer-events-none">
+      {Array.from({ length: 12 }).map(() => {
     
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {Array.from({ length: 10 }).map(() => {
-        const falls = ["fall", "fall-slow", "fall-fast", "fall-inverted", "fall-slow-inverted", "fall-fast-inverted"];
-        const logoSize = ["50px", "75px", "88px", "77px"]
-        const randomFall = falls[Math.floor(Math.random() * falls.length)];
-        const randomSize = logoSize[Math.floor(Math.random() * logoSize.length)]
-      
+        const sizes = ["25px", "40px", "55px", "70px", "85px", "125px"];
+        const size = sizes[Math.floor(Math.random() * sizes.length)];
+    
         return (
-          <video
-            autoplay loop muted playsinline
-            class={`w-24 absolute -translate-x-1/2 top-0 ${randomFall}`}
-            style={`left:${Math.random()*100}%;animation-delay:${1+Math.random()*4}s;width:${randomSize}`}
-          >
-            <source src="/animations/logo-small.webm" type="video/webm" />
-          </video>
+          <div
+            class="snowflake"
+            style={`
+              left:${Math.random()*100}%;
+              width:${size};
+              height:${size};
+              animation-delay:${Math.random()*5}s;
+              animation-duration:${5 + Math.random()*5}s;
+            `}
+          />
         );
       })}
     </div>
     <main class='w-[80%] flex flex-col gap-8'>
       <h1 class='md:text-8xl text-6xl font-black text-center'>ANTE.O</h1>
+      <h2 class='md:text-4xl text-2xl font-black text-center'>LINKS TO MY MUSIC BELOW</h2>
       <div class='grid justify-center gap-4'>
         {
           links.map(({ desc, link, icon }) => {

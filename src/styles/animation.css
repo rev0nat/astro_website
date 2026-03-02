@@ -1,59 +1,44 @@
-@keyframes fall {
-    0% { transform: translateY(-150px) rotate(0deg); }
-    100% { transform: translateY(100vh) rotate(360deg); }
+.snow-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
 }
   
-@keyframes fall-slow {
-    0% { transform: translateY(-150px) rotate(0deg); }
-    100% { transform: translateY(100vh) rotate(180deg); }
-}
-  
-@keyframes fall-fast {
-    0% { transform: translateY(-150px) rotate(0deg); }
-    100% { transform: translateY(100vh) rotate(270deg); }
+.snowflake {
+    position: absolute;
+    top: -100px;
+
+    display: block;
+
+    background-image: url("/animations/logo_small.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+
+    opacity: 0.9;
+
+    animation:
+        snow-fall linear infinite;
+
+    will-change: transform;
 }
 
-@keyframes fall-inverted {
-    0% { transform: translateY(-150px) rotate(360deg); }
-    100% { transform: translateY(100vh) rotate(270deg); }
-}
 
-@keyframes fall-slow-inverted {
-    0% { transform: translateY(-150px) rotate(180deg); }
-    100% { transform: translateY(100vh) rotate(20deg); }
-}
-
-@keyframes fall-fast-inverted {
-    0% { transform: translateY(-150px) rotate(270deg); }
-    100% { transform: translateY(100vh) rotate(100deg); }
-}
+@keyframes snow-fall {
+    0% {
+      transform: translate(-10px, -150px) rotate(0deg);
+      opacity:0;
+    }
   
-.fall {
-    animation: fall 5s linear infinite;
-    animation-fill-mode: backwards;
-}
+    50% {
+      transform: translate(20px, 50vh) rotate(180deg);
+      opacity:1;
+    }
   
-.fall-slow {
-    animation: fall-slow 8s ease-in infinite;
-    animation-fill-mode: backwards;
-}
-  
-.fall-fast {
-    animation: fall-fast 4s ease-in infinite;
-    animation-fill-mode: backwards;
-}
-  
-.fall-inverted {
-    animation: fall-inverted 5s linear infinite;
-    animation-fill-mode: backwards;
-}
-
-.fall-slow-inverted {
-    animation: fall-slow 8s ease-in infinite;
-    animation-fill-mode: backwards;
-}
-
-.fall-fast-inverted {
-    animation: fall-fast 4s ease-in infinite;
-    animation-fill-mode: backwards;
-}
+    100% {
+      transform: translate(-15px, calc(100vh + 200px)) rotate(360deg);
+      opacity:0.75;
+    }
+  }
